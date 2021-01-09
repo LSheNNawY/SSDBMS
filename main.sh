@@ -6,8 +6,9 @@ mkdir -p $projDir
 # including colors file
 . .colors.sh
 
-#including create database script
+#including database scripts
 . .createDB.sh
+. .dropDB.sh
 
 
 echo "#########################################################"
@@ -28,7 +29,7 @@ mainMenu() {
 		1 ) echo "Select database logic";;
 		2 ) creatingDB;;
 		3 ) echo "Rename database logic";;
-		4 ) echo "Drop database logic";;
+		4 ) droppingDB;;
 		5 ) exit;;
 		* ) echo -e "Wrong choice\n"; mainMenu ;;
 	esac
