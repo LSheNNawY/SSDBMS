@@ -5,14 +5,17 @@
 creatingDB() {
 
 	read -p "Enter database name: " DBName
-	
-	if [ ! -d "$projDir/$DBName" ]
+	if [[ $DBName == "" ]] 
+	then
+		echo -e "\n${yellow}Database name can not be empty!${reset}\n"
+
+	elif [ ! -d "$projDir/$DBName" ];
 	then
 		mkdir -p "$projDir/$DBName" 
 		echo -e "\n${green}Database Created successfully${reset}\n"
-		mainMenu
 	else
-		echo -e "\n${red}Database Already exists${reset}\n"
-		mainMenu
+		echo -e "\n${yellow}Database Already exists!${reset}\n"
 	fi
+
+	mainMenu
 }

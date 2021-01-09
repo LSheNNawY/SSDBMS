@@ -3,14 +3,26 @@
 droppingDB () {
 
 	read -p "Enter database name to drop: " DBName
-	
-	if [ -d "$projDir/$DBName" ]
-	then 
-		rm -fr "$projDir/$DBName"
-		echo -e "\n${green}Database $DBName deleted successfully ${reset}\n"
+	if [[ $DBName == "" ]];
+	then
+		echo -e "\n${yellow}Empty name entered!${reset}\n"
 		mainMenu
+
+	elif [ -d "$projDir/$DBName" ];
+	then
+		# confirmation
+	        read -p "Are you sure? y/n : " confirm
+
+		if [[ $confirm == "Y" || $confirm == "y" ]]
+		then
+			rm -fr "$projDir/$DBName"
+			echo -e "\n${green}Database $DBName deleted successfully ${reset}\n"
+		else
+			echo -e "\n${yellow}Database not deleted${reset}\n"
+		fi
 	else
 		echo -e "\n${yellow}Database $DBName not found!${reset}\n"
-		mainMenu
 	fi
+
+	mainMenu
 }

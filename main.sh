@@ -9,6 +9,11 @@ mkdir -p $projDir
 #including database scripts
 . .createDB.sh
 . .dropDB.sh
+. .selectAllDBs.sh
+. .selectDB.sh
+
+# including tables scripts
+. .tablesMenu.sh
 
 
 echo "#########################################################"
@@ -20,18 +25,18 @@ echo -e "#########################################################\n"
 mainMenu() {
 	echo "1) Select database"
 	echo "2) Create database"
-	echo "3) Rename database"
+	echo "3) List databases"
 	echo "4) Drop database"
 	echo "5) Exit"
 
 	read 
 	case $REPLY in 
-		1 ) echo "Select database logic";;
+		1 ) selectingDB;;
 		2 ) creatingDB;;
-		3 ) echo "Rename database logic";;
+		3 ) selectingAll;;
 		4 ) droppingDB;;
 		5 ) exit;;
-		* ) echo -e "Wrong choice\n"; mainMenu ;;
+		* ) echo -e "${yellow}Wrong choice${reset}\n"; mainMenu ;;
 	esac
 }
 
