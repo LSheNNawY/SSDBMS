@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 clear
-projDir="$HOME/SSDBMS"
+projDir="$PWD/SSDBMS"
 mkdir -p $projDir
 # including colors file
 . .colors.sh
@@ -14,6 +14,8 @@ mkdir -p $projDir
 
 # including tables scripts
 . .tablesMenu.sh
+. .createTable.sh
+. .dropTable.sh
 
 
 echo "#########################################################"

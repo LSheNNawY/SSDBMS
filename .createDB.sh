@@ -14,7 +14,7 @@ creatingDB() {
 		mkdir -p "$projDir/$DBName" 
 		echo -e "\n${green}Database Created successfully${reset}\n"
 	else
-		echo -e "\n${yellow}Database Already exists!${reset}\n"
+		echo -e "\n${yellow}Database '$DBName' Already exists!${reset}\n"
 	fi
 
 	mainMenu

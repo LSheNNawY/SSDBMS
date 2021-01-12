@@ -14,7 +14,7 @@ tablesMenu () {
 
 		read 
 		case $REPLY in
-			1 ) echo "Creating table logic";;
+			1 ) creatingTable;;
 			2 ) echo "List tables Logic";;
 			3 ) echo "Drop table";;
 			4 ) echo "Insert into table logic";;
@@ -30,4 +30,6 @@ tablesMenu () {
 	
 	tablesMenu $DBName
 }
+
+
 
