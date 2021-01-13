@@ -15,7 +15,7 @@ tablesMenu () {
 		read 
 		case $REPLY in
 			1 ) creatingTable;;
-			2 ) echo "List tables Logic";;
+			2 ) listingTables;;
 			3 ) droppingTable;;
 			4 ) echo "Insert into table logic";;
 			5 ) echo "Select from table logic";;

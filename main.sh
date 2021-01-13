@@ -14,6 +14,7 @@ mkdir -p $projDir
 
 # including tables scripts
 . .tablesMenu.sh
+. .showTables.sh
 . .createTable.sh
 . .dropTable.sh
 
