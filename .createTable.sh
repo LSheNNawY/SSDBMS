@@ -10,16 +10,17 @@ creatingTable() {
         echo -e "\n${yellow}Table '$tableName' already exists!${reset}\n"
     else
 
-        touch "$projDir/$DBName/$tableName" "$projDir/$DBName/.$tableName"
-
         validColNum=0
-
+        # looping until required data entered
         while [ $validColNum -eq 0 ]; do
             read -p "Enter number of columns: " colNumber
             # check number of columns
             if [[ $colNumber -eq 0 || $colNumber == "" ]]; then
                 echo -e "\n${yellow}Must be valid number & gt 0${reset}\n"
             else
+                # creating table files [data file and meta file]
+                touch "$projDir/$DBName/$tableName" "$projDir/$DBName/.$tableName"
+                echo "$tableName,$colNumber" >> "$projDir/$DBName/.$tableName"
                 # inserting columns
                 for (( i = 1; i <= $colNumber; i++ )); do
                     validColName=0

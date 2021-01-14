@@ -17,7 +17,7 @@ mkdir -p $projDir
 . .showTables.sh
 . .createTable.sh
 . .dropTable.sh
-
+. .selectFromTable.sh
 
 echo "#########################################################"
 echo "#                                                       #"

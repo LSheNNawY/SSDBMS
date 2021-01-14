@@ -18,7 +18,7 @@ tablesMenu () {
 			2 ) listingTables;;
 			3 ) droppingTable;;
 			4 ) echo "Insert into table logic";;
-			5 ) echo "Select from table logic";;
+			5 ) selectingFromTable;;
 			6 ) echo "Delete from table logic";;
 			7 ) mainMenu;;
 			* ) echo -e "${yellow}Wrong choice${reset}\n";tablesMenu $DBName;;
