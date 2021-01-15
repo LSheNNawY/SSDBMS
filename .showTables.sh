@@ -13,9 +13,9 @@ listingTables () {
         done
         echo -e "${reset}"
   else
-        echo "--------------------"
+        echo -e "\n${cyan}--------------------"
         echo "No tables"
-        echo "--------------------"
+        echo -e "--------------------${reset}\n"
 	fi
 
     tablesMenu $DBName

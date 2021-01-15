@@ -17,7 +17,7 @@ tablesMenu () {
 			1 ) creatingTable;;
 			2 ) listingTables;;
 			3 ) droppingTable;;
-			4 ) echo "Insert into table logic";;
+			4 ) insertingIntoTable;;
 			5 ) selectingFromTable;;
 			6 ) echo "Delete from table logic";;
 			7 ) mainMenu;;
