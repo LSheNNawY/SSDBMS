@@ -19,7 +19,7 @@ tablesMenu () {
 			3 ) droppingTable;;
 			4 ) insertingIntoTable;;
 			5 ) selectingFromTable;;
-			6 ) echo "Delete from table logic";;
+			6 ) deletingFromTable;;
 			7 ) mainMenu;;
 			* ) echo -e "${yellow}Wrong choice${reset}\n";tablesMenu $DBName;;
 		esac

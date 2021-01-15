@@ -9,10 +9,7 @@ creatingTable() {
     elif [ -f "$projDir/$DBName/$tableName" ]; then
         echo -e "\n${yellow}Table '$tableName' already exists!${reset}\n"
     else
-
-        validColNum=0
-        # looping until required data entered
-        while [ $validColNum -eq 0 ]; do
+        while true; do
             read -p "Enter number of columns: " colNumber
             # check number of columns
             if [[ $colNumber -eq 0 || $colNumber == "" ]]; then
@@ -23,8 +20,8 @@ creatingTable() {
                 echo "$tableName,$colNumber" >> "$projDir/$DBName/.$tableName"
                 # inserting columns
                 for (( i = 1; i <= $colNumber; i++ )); do
-                    validColName=0
-                    while [ $validColName -eq 0 ]; do
+                    # insert columns' names
+                    while true; do
                         if [[ $i == 1 ]];
                         then
                             read -p "column #$i [primary] name: " colName
@@ -35,34 +32,41 @@ creatingTable() {
                         if [[ $colName == "" || ! $colName =~ (^[a-zA-Z]+) ]]; then
                             echo -e "${yellow}Invalid name${reset}"
                         else
-                            validColName=1
+#                            validColName=1
+                            break
                         fi
                     done
                     # column types
                     echo "1) int"
                     echo "2) string"
 
-                    choice=0
-                    # validate user input
-                    while [ $choice -eq 0 ]; do
+                    # validate user input data types
+                    while true; do
                         read
                         if [[ $REPLY == 1 ]]; then
                             colType="int"
                             echo "$colName,$colType" >>"$projDir/$DBName/.$tableName"
-                            choice=1
+                            break
                         elif [[ $REPLY == 2 ]]; then
                             colType="string"
                             echo "$colName,$colType" >>"$projDir/$DBName/.$tableName"
-                            choice=1
+                            break
                         else
-                            echo -e "\n${yellow}Wrong choice${reset}\n"
+                            echo -e "${yellow}Wrong choice${reset}"
                         fi
                     done
 
-                    validColNum=1
                 done
+               break
             fi
         done
+
+        # check if creation done
+        if [ $? -eq 0 ]; then
+            echo -e "\n${green}Table created successfully${reset}\n"
+        else
+            echo -e "\n${red}Error creating table!${reset}"
+        fi
 
     fi
 

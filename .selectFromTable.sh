@@ -13,25 +13,27 @@ selectingFromTable() {
             # get table columns name
             colNum=$(head -n 1 "$projDir/$DBName/.$tableName" | cut -d',' -f2)
             colNames=$(tail -n+2 "$projDir/$DBName/.$tableName" | cut -d',' -f1)
+            # select menu options
 
-            echo "1 ) select all"
-            counter=2
+            counter=1
             for col in $colNames; do
                 echo "$counter ) select by $col"
                 ((counter++))
             done
+            echo "$counter ) select all"
 
             while true; do
                 read selectedCol
+                # validate input
                 if [[ $selectedCol == "" || $selectedCol -lt 1 || $selectedCol -gt  $((colNum+1))  ]]; then
-                    echo -e "${yellow}Choose correct value${reset}"
+                    echo -e "${yellow}Wrong choice!${reset}"
                 else
                     # selected col name
-                    needle=$( echo $colNames | cut -d' ' -f $((selectedCol-1)) )
+                    needle=`echo $colNames | cut -d" " -f $selectedCol`
 
                     while true; do
                         # select data by col name
-                        if [[ $selectedCol -gt 1 ]]; then
+                        if [[ $selectedCol -lt $((colNum+1)) ]]; then
                             read -p "Enter $needle: " search
                             if [[ $search == "" ]]; then
                                 echo -e "${yellow}Not valid!${reset}"
@@ -41,7 +43,7 @@ selectingFromTable() {
                         fi
 
                         # select all data
-                        if [[ $selectedCol -eq 1 ]]; then
+                        if [[ $selectedCol -eq $((colNum+1)) ]]; then
                             data=$(awk -F',' 'BEGIN{OFS="\t|\t"} { $1=$1; { print } }' "$projDir/$DBName/$tableName")
                         fi
 

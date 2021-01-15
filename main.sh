@@ -19,6 +19,7 @@ mkdir -p $projDir
 . .dropTable.sh
 . .selectFromTable.sh
 . .insertIntoTable.sh
+. .deleteFromTable.sh
 
 echo "#########################################################"
 echo "#                                                       #"
