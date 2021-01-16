@@ -28,21 +28,24 @@ echo "#                                                       #"
 echo -e "#########################################################\n"
 
 mainMenu() {
-	echo "1) Select database"
-	echo "2) Create database"
-	echo "3) List databases"
-	echo "4) Drop database"
-	echo "5) Exit"
+        echo "1) Select database"
+        echo "2) Create database"
+        echo "3) List databases"
+        echo "4) Drop database"
+        echo "5) Exit"
 
-	read 
-	case $REPLY in 
-		1 ) selectingDB;;
-		2 ) creatingDB;;
-		3 ) selectingAll;;
-		4 ) droppingDB;;
-		5 ) exit;;
-		* ) echo -e "${yellow}Wrong choice${reset}\n"; mainMenu ;;
-	esac
+        read
+        case $REPLY in
+        1) selectingDB ;;
+        2) creatingDB ;;
+        3) selectingAll ;;
+        4) droppingDB ;;
+        5) exit ;;
+        *)
+                echo -e "${yellow}Wrong choice${reset}\n"
+                mainMenu
+                ;;
+        esac
 }
 
 mainMenu
