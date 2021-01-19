@@ -4,7 +4,7 @@ SHELL script Database management system
 ### Database:
 <ul>
     <li>Select Database</li>
-    <li>List all databases database</li>
+    <li>List all databases</li>
     <li>Create new database</li>
     <li>Drop database</li>
 </ul>
@@ -14,7 +14,7 @@ SHELL script Database management system
     <li>Create Table</li>
     <li>List all Tables</li>
     <li>Create new table</li>
-    <li>select from table: 
+    <li>Select from table: 
         <ul>
             <li>By column</li>
             <li>Select all data</li>
