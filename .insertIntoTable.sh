@@ -29,7 +29,7 @@ insertingIntoTable() {
                                         read -p "Enter ${colNames[i]}: " colVal
                                         # validate col data type if it is int
                                         if [[ ${colDataType[i]} == "int" ]]; then
-                                                if [[ $colVal == "" || ! $colVal =~ (^[0-9]+)$ ]]; then
+                                                if [[ $colVal == "" || ! $colVal =~ (^[1-9]+)$ ]]; then
                                                         echo -e "${yellow}Invalid ${colNames[i]} ${reset}"
                                                 else
                                                         # save data

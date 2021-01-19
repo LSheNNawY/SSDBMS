@@ -29,7 +29,7 @@ deletingFromTable() {
                                                         sed -i "$lineNumber d" "$projDir/$DBName/$tableName"
                                                         # check if the deletion is done
                                                         if [ $? -eq 0 ]; then
-                                                                echo -e "\n${green}Table deleted successfully${reset}\n"
+                                                                echo -e "\n${green}Record deleted successfully${reset}\n"
                                                         else
                                                                 echo -e "\n${red}Failed to delete record!${reset}\n"
                                                         fi

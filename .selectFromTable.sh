@@ -38,13 +38,13 @@ selectingFromTable() {
                                                         if [[ $search == "" ]]; then
                                                                 echo -e "${yellow}Not valid!${reset}"
                                                         else
-                                                                data=$(awk -F',' -v arg="$selectedCol" -v ser="$search" 'BEGIN{OFS="\t|\t"} { $1=$1; if ( $arg == ser  ) { print } }' "$projDir/$DBName/$tableName")
+                                                                data=$(awk -F',' -v arg="$selectedCol" -v ser="$search" 'BEGIN{OFS="\t|\t"} { $1=$1; if ( $arg == ser  ) { print } }' "$projDir/$DBName/$tableName" | sort -n)
                                                         fi
                                                 fi
 
                                                 # select all data
                                                 if [[ $selectedCol -eq $((colNum + 1)) ]]; then
-                                                        data=$(awk -F',' 'BEGIN{OFS="\t|\t"} { $1=$1; { print } }' "$projDir/$DBName/$tableName")
+                                                        data=$(awk -F',' 'BEGIN{OFS="\t|\t"} { $1=$1; { print } }' "$projDir/$DBName/$tableName" | sort -n)
                                                 fi
 
                                                 ############ making a table for data show ###########
